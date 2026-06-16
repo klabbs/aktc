@@ -2,11 +2,15 @@ import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 import { logout } from "../../store/slices/authSlice"
+import { sidebarLinks } from "./../../constants/sidebarLinks";
 
-const Navbar = () => {
+const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
-
+  const currentLink = sidebarLinks.find(
+    (link) => link.path === location.pathname
+  );
+  const title = currentLink?.label || "Dashboard";
   const { isAuthenticated, user } = useSelector(
     (state) => state.auth
   )
@@ -17,29 +21,32 @@ const Navbar = () => {
   }
 
   return (
-    <nav className="bg-white shadow-md px-6 py-4 flex justify-between">
-      <h1 className="text-2xl font-bold text-blue-600">
-        AKTC
-      </h1>
+    <header className="topbar">
+      <button
+        className="menu-toggle"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+      >
+        <i className="fa-solid fa-bars"></i>
+      </button>
+            <h2>{title}</h2>
 
-      <div className="flex items-center gap-4">
-        {isAuthenticated && (
-          <>
-            <span>
-              {user.name} - {user.role}
-            </span>
+            <div className="top-actions">
 
-            <button
-              onClick={handleLogout}
-              className="bg-red-500 text-white px-4 py-2 rounded"
-            >
-              Logout
-            </button>
-          </>
-        )}
-      </div>
-    </nav>
-  )
+                <div className="search">
+                    <i className="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search courses..."/>
+                </div>
+
+                <i className="fa-regular fa-bell"></i>
+                <i className="fa-regular fa-id-card"></i>
+
+                <img src="https://i.pravatar.cc/45" className="avatar"/>
+
+            </div>
+
+        </header>
+
+   )
 }
 
 export default Navbar
