@@ -8,7 +8,7 @@ const CoursesRoutes = () => {
     <Routes>
       <Route index element={<CoursesPage />} />
       <Route path="new" element={<CreateCoursePage />} />
-      <Route path=":id" element={<CourseDetailsPage />} />
+      {/* <Route path=":id" element={<CourseDetailsPage />} /> */}
     </Routes>
   );
 };

@@ -18,7 +18,7 @@ import StudentDashboard from "../pages/student/StudentDashboard"
 
 //Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
-import CoursesRoutes from "../features/courses/routes/CoursesRoutes";
+import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
 
 const AppRoutes = () => {
   return (
@@ -134,6 +134,8 @@ const AppRoutes = () => {
         }
       />
     </Routes>
+
+    
   )
 }
 

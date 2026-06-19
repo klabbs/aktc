@@ -1,5 +1,5 @@
-import {createUser} from "./../api/usersApi"
-const UserForm = ({
+import {createCourse} from "./../api/coursesApi"
+const CourseForm = ({
     formData,
     setFormData,
     onSubmit,
@@ -66,7 +66,7 @@ const UserForm = ({
         >
           <option value="student">Student</option>
           <option value="instructor">Instructor</option>
-          <option value="management">Manager</option>
+          <option value="manager">Manager</option>
           <option value="admin">Admin</option>
         </select>
   
@@ -77,4 +77,4 @@ const UserForm = ({
     );
   };
   
-  export default UserForm;
+  export default CourseForm;
