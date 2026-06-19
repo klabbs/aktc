@@ -108,33 +108,31 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-
+    
       <Route
-        path="/courses"
+        path="/batches"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","instructor","student"]}>
+            <RoleRoute allowedRoles={["admin","management","instructor"]}>
               <DashboardLayout>
-                <CoursesRoutes/>
+                <CoursesRoutes />
               </DashboardLayout>
             </RoleRoute>
           </ProtectedRoute>
         }
       />
-
       <Route
-        path="/courses/*"
+        path="/batches/*"
         element={
           <ProtectedRoute>
             <RoleRoute allowedRoles={["admin"]}>
               <DashboardLayout>
-                <CoursesRoutes/>
+                <CoursesRoutes />
               </DashboardLayout>
             </RoleRoute>
           </ProtectedRoute>
         }
       />
-
     </Routes>
 
     

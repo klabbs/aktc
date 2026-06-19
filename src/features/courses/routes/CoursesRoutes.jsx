@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import CoursesPage from "../pages/CoursesPage";
-// import CourseDetailsPage from "../pages/CourseDetailsPage";
+import CourseDetailsPage from "../pages/CourseDetails";
 import CreateCoursePage from "../pages/CreateCoursePage";
 
 const CoursesRoutes = () => {
