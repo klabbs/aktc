@@ -7,7 +7,7 @@ const UsersPage = () => {
 
   return (
     <>
-      <h1>Users</h1>
+      <h1>Users (all)</h1>
 
       <UserTable />
     </>
