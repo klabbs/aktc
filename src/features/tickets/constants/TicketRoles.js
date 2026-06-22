@@ -1,0 +1,22 @@
+export const TICKET_ROLES = {
+  ADMIN: "admin",
+  INSTRUCTOR: "instructor",
+  MANAGER: "manager",
+  STUDENT: "student",
+};
+
+export const TICKET_ACCESS_ROLES = [
+  TICKET_ROLES.ADMIN,
+  TICKET_ROLES.INSTRUCTOR,
+];
+
+export const TICKET_VIEW_ROLES = [
+  TICKET_ROLES.ADMIN,
+  TICKET_ROLES.INSTRUCTOR,
+  TICKET_ROLES.STUDENT,
+];
+
+export const TICKET_CREATION_ROLES = [
+  TICKET_ROLES.ADMIN,
+  TICKET_ROLES.INSTRUCTOR,
+];

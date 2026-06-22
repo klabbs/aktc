@@ -20,4 +20,9 @@ export const sidebarLinks = [
       path: "/users",
       roles: [ROLES.ADMIN]
     },
+    {
+      label: "Tickets",
+      path: "/admin/tickets",
+      roles: [ROLES.ADMIN, ROLES.INSTRUCTOR],
+    },
   ];

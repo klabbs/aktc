@@ -18,6 +18,7 @@ import StudentDashboard from "../pages/student/StudentDashboard"
 
 //Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
+import TicketRoutes from "../features/tickets/routes/TicketRoutes";
 
 const AppRoutes = () => {
   return (
@@ -102,6 +103,18 @@ const AppRoutes = () => {
             <RoleRoute allowedRoles={["admin"]}>
               <DashboardLayout>
                 <UsersRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/tickets/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin", "instructor"]}>
+              <DashboardLayout>
+                <TicketRoutes />
               </DashboardLayout>
             </RoleRoute>
           </ProtectedRoute>
