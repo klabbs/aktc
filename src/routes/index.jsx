@@ -222,10 +222,10 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/registration"
+        path="/registration/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management"]}>
+            <RoleRoute allowedRoles={["admin","management","student","instructor"]}>
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
@@ -234,10 +234,10 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/registration/*"
+        path="/registration"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin"]}>
+            <RoleRoute allowedRoles={["admin","management","student","instructor"]}>
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
