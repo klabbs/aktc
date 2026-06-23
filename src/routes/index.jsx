@@ -1,27 +1,26 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 
-import HomePage from "../pages/HomePage"
-import LoginPage from "../pages/LoginPage"
-import RegisterPage from "../pages/RegisterPage"
+import HomePage from "../pages/HomePage";
+import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
 
-import DashboardPage from "../pages/dashboard/DashboardPage"
+import DashboardPage from "../pages/dashboard/DashboardPage";
 
-import MainLayout from "../layouts/MainLayout"
-import DashboardLayout from "../layouts/DashboardLayout"
+import MainLayout from "../layouts/MainLayout";
+import DashboardLayout from "../layouts/DashboardLayout";
 
-import ProtectedRoute from "./protected"
-import RoleRoute from "./role"
+import ProtectedRoute from "./protected";
+import RoleRoute from "./role";
 
-import AdminDashboard from "../pages/admin/AdminDashboard"
-import InstructorDashboard from "../pages/instructor/InstructorDashboard"
-import StudentDashboard from "../pages/student/StudentDashboard"
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import InstructorDashboard from "../pages/instructor/InstructorDashboard";
+import StudentDashboard from "../pages/student/StudentDashboard";
 
-//Feature Routes
+// Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
-import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
-import BatchRoutes from "../features/batches/routes/BatchRoutes"
-// import RegistrationRoutes from "../features/registration/routes/RegistrationRoutes"
-import EnrollRoutes from "../features/enrollment/routes/EnrollRoutes"
+import CoursesRoutes from "../features/courses/routes/CoursesRoutes";
+import BatchRoutes from "../features/batches/routes/BatchRoutes";
+import EnrollRoutes from "../features/enrollment/routes/EnrollRoutes";
 
 const AppRoutes = () => {
   return (
@@ -36,15 +35,9 @@ const AppRoutes = () => {
         }
       />
 
-      <Route
-        path="/login"
-        element={<LoginPage />}
-      />
+      <Route path="/login" element={<LoginPage />} />
 
-      <Route
-        path="/register"
-        element={<RegisterPage />}
-      />
+      <Route path="/register" element={<RegisterPage />} />
 
       {/* PROTECTED ROUTES */}
       <Route
@@ -58,7 +51,7 @@ const AppRoutes = () => {
         }
       />
 
-      {/*ROLE-BASED ROUTES*/}
+      {/* ROLE-BASED ROUTES */}
       <Route
         path="/admin"
         element={
@@ -98,7 +91,8 @@ const AppRoutes = () => {
         }
       />
 
-      {/*FEATURES-ROUTES*/}
+      {/* FEATURE ROUTES */}
+
       <Route
         path="/admin/users/*"
         element={
@@ -111,12 +105,19 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-    
+
       <Route
-        path="/batches"
+        path="/courses/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor"]}>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
@@ -124,72 +125,49 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-      <Route
-       path="/courses"
-       element={
-         <ProtectedRoute>
-           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
-             <DashboardLayout>
-               <CoursesRoutes />
-             </DashboardLayout>
-           </RoleRoute>
-         </ProtectedRoute>
-       }
-     />
-     <Route
-       path="/courses/:id"
-       element={
-         <ProtectedRoute>
-           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
-             <DashboardLayout>
-               <CoursesRoutes />
-             </DashboardLayout>
-           </RoleRoute>
-         </ProtectedRoute>
-       }
-     />
-     <Route
-       path="/courses/*"
-       element={
-         <ProtectedRoute>
-           <RoleRoute allowedRoles={["admin"]}>
-             <DashboardLayout>
-               <CoursesRoutes />
-             </DashboardLayout>
-           </RoleRoute>
-         </ProtectedRoute>
-       }
-     />
 
       <Route
         path="/batches/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin"]}>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+              ]}
+            >
               <DashboardLayout>
-                <CoursesRoutes />
+                <BatchRoutes />
               </DashboardLayout>
             </RoleRoute>
           </ProtectedRoute>
         }
       />
       <Route
-        path="/payments"
+        path="/batches/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor"]}>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+              ]}
+            >
               <DashboardLayout>
-                <CoursesRoutes />
+                <BatchRoutes />
               </DashboardLayout>
             </RoleRoute>
           </ProtectedRoute>
         }
       />
+
       <Route
         path="/payments/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin"]}>
+            <RoleRoute allowedRoles={["admin", "management", "instructor"]}>
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
@@ -197,23 +175,12 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/wallets"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor"]}>
-              <DashboardLayout>
-                <CoursesRoutes />
-              </DashboardLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
+
       <Route
         path="/wallets/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin"]}>
+            <RoleRoute allowedRoles={["admin", "management", "instructor"]}>
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
@@ -221,11 +188,19 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+
       <Route
         path="/registration/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","student","instructor"]}>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "student",
+                "instructor",
+              ]}
+            >
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
@@ -233,35 +208,19 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/registration"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","student","instructor"]}>
-              <DashboardLayout>
-                <CoursesRoutes />
-              </DashboardLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
+
       <Route
         path="/enrollment/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin", "management", "instructor", "student"]}>
-              <DashboardLayout>
-                <EnrollRoutes />
-              </DashboardLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/enrollment"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin", "management", "instructor", "student"]}>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
               <DashboardLayout>
                 <EnrollRoutes />
               </DashboardLayout>
@@ -270,9 +229,7 @@ const AppRoutes = () => {
         }
       />
     </Routes>
+  );
+};
 
-    
-  )
-}
-
-export default AppRoutes
+export default AppRoutes;
