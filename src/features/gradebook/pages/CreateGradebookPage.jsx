@@ -1,7 +1,7 @@
 import GradebookForm from "../components/GradebookForm";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 
-const GradebookPage = () => {
+const CreateGradebookPage = () => {
   useDocumentTitle("Gradebook | AKTC");
 
   return (

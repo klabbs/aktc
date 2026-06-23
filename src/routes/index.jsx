@@ -25,6 +25,7 @@ import ForumsRoutes from "../features/forum/routes/ForumRoutes"
 import WalletsRoutes from "../features/wallets/routes/WalletsRoutes"
 import TimetableRoutes from "../features/timetable/routes/TimetableRoutes"
 import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes"
+import ClassesRoutes from "../features/classes/routes/ClassesRoutes"
 
     
 const AppRoutes = () => {
