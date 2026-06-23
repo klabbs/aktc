@@ -12,14 +12,15 @@ import DashboardLayout from "../layouts/DashboardLayout"
 import ProtectedRoute from "./protected"
 import RoleRoute from "./role"
 
-import AdminDashboard from "../pages/admin/AdminDashboard"
-import InstructorDashboard from "../pages/instructor/InstructorDashboard"
-import StudentDashboard from "../pages/student/StudentDashboard"
+//import AdminDashboard from "../pages/admin/AdminDashboard"
+//import InstructorDashboard from "../pages/instructor/InstructorDashboard"
+//import StudentDashboard from "../pages/student/StudentDashboard"
 
 //Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
-
+import TicketsRoutes from "../features/tickets/routes/TicketRoutes"
+import EventsRoutes from "../features/events/routes/EventsRoutes"
 const AppRoutes = () => {
   return (
     <Routes>
@@ -125,14 +126,41 @@ const AppRoutes = () => {
         path="/batches/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin"]}>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
               <DashboardLayout>
-                <CoursesRoutes />
+                <TicketsRoutes />
               </DashboardLayout>
             </RoleRoute>
           </ProtectedRoute>
         }
       />
+
+      <Route
+        path="/tickets/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+              <DashboardLayout>
+                <TicketsRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+    
+      <Route
+        path="/events/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+              <DashboardLayout>
+                <EventsRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+
     </Routes>
 
     
