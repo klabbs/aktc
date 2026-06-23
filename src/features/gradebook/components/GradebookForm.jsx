@@ -1,5 +1,5 @@
-import {createCourse} from "./../api/coursesApi"
-const CourseForm = ({
+import {createGradebook} from "./../api/gradebookApi"
+const GradebookForm = ({
     formData,
     setFormData,
     onSubmit,
@@ -34,47 +34,47 @@ const CourseForm = ({
   
     return (
       <form onSubmit={handleSubmit}>
-        Name: <input
-          name="name"
-          value={formData?.name || ""}
+        Enrollment: <input
+          name="enroll"
+          value={formData?.enrollment || ""}
           onChange={handleChange}
         />
         <hr/>
-        Email: <input
-          name="email"
-          value={formData?.email || ""}
+       assignmentName: <input
+          name="assignment"
+          value={formData?.assignmentName || ""}
           onChange={handleChange}
         />
          <hr/>
-        Password: <input
-          name="password"
-          value={formData?.password || ""}
+        Score: <input
+          name="score"
+          value={formData?.score || ""}
           onChange={handleChange}
         />
         <hr/>
-        Phone: <input
-          name="phone"
-          value={formData?.phone || ""}
+         maxScore: <input
+          name=" maxScore"
+          value={formData?. maxScore|| ""}
           onChange={handleChange}
         />
         <hr/>
-        Role:
+         type:
         <select
-          name="role"
-          value={formData?.role || ""}
+          name=" type"
+          value={formData?. type || ""}
           onChange={handleChange}
         >
-          <option value="student">Student</option>
-          <option value="instructor">Instructor</option>
-          <option value="manager">Manager</option>
-          <option value="admin">Admin</option>
+          <option value="quiz">Quiz</option>
+          <option value="exam">Exam</option>
+          <option value="assignment">Assignment</option>
+          <option value="project">Project</option>
         </select>
   
         <button type="submit">
-          Save User
+          Submit
         </button>
       </form>
     );
   };
   
-  export default CourseForm;
+  export default GradebookForm;
