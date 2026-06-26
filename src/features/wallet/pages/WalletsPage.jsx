@@ -1,30 +1,30 @@
-import './Courses.css';
-import CourseCard from "../components/CourseCard";
+import './Wallets.css';
+import WalletCard from "../components/WalletCard";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 
-const CoursesPage = () => {
-  useDocumentTitle("Courses | AKTC");
+const WalletsPage = () => {
+  useDocumentTitle("Wallets | AKTC");
   return (
     <>
       <section className="catalog">
 
-        <h1>Course Catalog</h1>
+        <h1>Wallets</h1>
 
         <p>
-            Elevate your skills with our premium academy paths.
+        Manage and view all user wallets and balances.
         </p>
 
         <div className="tabs">
-            <button className="active">All Courses</button>
+            <button className="active">All Wallets</button>
             <button>UI/UX Design</button>
             <button>Full Stack Dev</button>
             <button>Data Science</button>
             <button>Digital Marketing</button>
         </div>
 
-        <div className="course-gridxS">
+        <div className="wallet-grid">
 
-          <CourseCard />
+          <WalletCard />
         </div>
         
         <div className="promo-section">
@@ -78,4 +78,4 @@ const CoursesPage = () => {
   );
 };
 
-export default CoursesPage
+export default WalletsPage

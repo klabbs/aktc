@@ -12,6 +12,7 @@ const LibraryRoutes = () => {
       <Route path="new" element={<CreateLibraryPage />} />
       <Route path=":id" element={<LibraryDetails />} />
       <Route path=":id/edit" element={<LibraryDetails />} />
+      
     </Routes>
   );
 };
