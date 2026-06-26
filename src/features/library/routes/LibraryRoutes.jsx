@@ -1,6 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import LibraryPage from "../pages/LibraryPage";
 import CreateLibraryPage from "../pages/CreateLibraryPage";
+
+// Only import if the file exists
 import LibraryDetails from "../pages/LibraryDetails";
 
 const LibraryRoutes = () => {
