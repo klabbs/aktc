@@ -10,5 +10,5 @@ export const useCourses = () => {
     );
   }, []);
 
-  return { useCourses };
+  return { courses };
 };

@@ -19,6 +19,7 @@ import StudentDashboard from "../pages/student/StudentDashboard"
 //Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
+import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
 
 const AppRoutes = () => {
   return (
@@ -108,12 +109,11 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-    
       <Route
-        path="/batches"
+        path="/courses/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor"]}>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
@@ -121,18 +121,7 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-      <Route
-        path="/batches/*"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin"]}>
-              <DashboardLayout>
-                <CoursesRoutes />
-              </DashboardLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
+     
     </Routes>
 
     
