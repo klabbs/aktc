@@ -20,6 +20,8 @@ import StudentDashboard from "../pages/student/StudentDashboard"
 import UsersRoutes from "../features/users/routes/UsersRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
+import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes";
+import WalletRoutes from "../features/wallet/routes/WalletsRoutes";
 
 const AppRoutes = () => {
   return (
@@ -113,7 +115,7 @@ const AppRoutes = () => {
         path="/courses/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+            <RoleRoute allowedRoles={["admin","management","instructor"]}>
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
@@ -121,7 +123,43 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-     
+      <Route
+        path="/batches/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin", "management", "instructor", "student"]}>
+              <DashboardLayout>
+                <CoursesRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/payments/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+              <DashboardLayout>
+                <PaymentsRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/wallet/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+              <DashboardLayout>
+                <WalletRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+      
     </Routes>
 
     
