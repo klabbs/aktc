@@ -1,34 +1,11 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import EventsForm from "../components/EventsForm";
-import { createEvent } from "../../events/api/events";
+import EventsTable from "../components/EventsTable";
+import useDocumentTitle from "../../../hooks/UseDocumentTitle";
 import "../styles/events.css";
 
-const CreateEventPage = () => {
+const EventsPage = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    eventName: "",
-    organizer: "",
-    date: "",
-    location: "",
-    description: "",
-    capacity: ""
-  });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      await createEvent(formData);
-      navigate("/admin/events");
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleCancel = () => {
-    navigate("/admin/events");
-  };
+  useDocumentTitle("Events | AKTC");
 
   return (
     <div className="events-container">
@@ -41,8 +18,10 @@ const CreateEventPage = () => {
 
         <ul className="events-menu">
           <li><i className="fa-solid fa-table-columns"></i> Dashboard</li>
-          <li><i className="fa-regular fa-calendar"></i> Events</li>
-          <li className="active"><i className="fa-solid fa-plus"></i> Create Event</li>
+          <li className="active"><i className="fa-regular fa-calendar"></i> Events</li>
+          <li onClick={() => navigate("/admin/events/create")}>
+            <i className="fa-solid fa-plus"></i> Create Event
+          </li>
           <li><i className="fa-regular fa-users"></i> Attendees</li>
           <li><i className="fa-solid fa-cog"></i> Settings</li>
         </ul>
@@ -61,8 +40,8 @@ const CreateEventPage = () => {
         {/* Top Bar */}
         <div className="events-topbar">
           <div>
-            <h2>Create Event</h2>
-            <p>Add a new event to the system</p>
+            <h2>Events</h2>
+            <p>Manage all events and attendees</p>
           </div>
 
           <div className="events-top-right">
@@ -99,34 +78,28 @@ const CreateEventPage = () => {
           </div>
         </div>
 
-        {/* Form Section */}
+        {/* Events Table */}
         <div className="events-form-container">
-          <h3>Event Details</h3>
-          <EventsForm
-            formData={formData}
-            setFormData={setFormData}
-            onSubmit={handleSubmit}
-            onCancel={handleCancel}
-          />
+          <EventsTable />
         </div>
 
         {/* Insights */}
         <div className="events-insights">
-          <h4>Event Creation Tips</h4>
+          <h4>Events Overview</h4>
           <p>
-            Event Name
-            <span>Should be descriptive and clear</span>
+            Active Events
+            <span>12 running</span>
           </p>
           <p>
-            Date & Time
-            <span>Set appropriate timezone</span>
+            Completed Events
+            <span>12 finished</span>
           </p>
           <p>
-            Capacity
-            <span>Based on venue/platform limits</span>
+            Pending Review
+            <span>2 awaiting</span>
           </p>
           <div className="events-progress">
-            <div className="fill" style={{ width: "100%" }}></div>
+            <div className="fill" style={{ width: "85%" }}></div>
           </div>
         </div>
       </main>
@@ -134,4 +107,4 @@ const CreateEventPage = () => {
   );
 };
 
-export default CreateEventPage;
+export default EventsPage;

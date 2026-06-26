@@ -12,6 +12,9 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import ProtectedRoute from "./protected";
 import RoleRoute from "./role";
 
+//import AdminDashboard from "../pages/admin/AdminDashboard"
+//import InstructorDashboard from "../pages/instructor/InstructorDashboard"
+//import StudentDashboard from "../pages/student/StudentDashboard"
 import AdminDashboard from "../pages/admin/AdminDashboard";
 import InstructorDashboard from "../pages/instructor/InstructorDashboard";
 import StudentDashboard from "../pages/student/StudentDashboard";
@@ -23,6 +26,8 @@ import BatchRoutes from "../features/batches/routes/BatchRoutes";
 import EnrollRoutes from "../features/enrollment/routes/EnrollRoutes";
 import TicketRoutes from "../features/tickets/routes/TicketRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
+import TicketsRoutes from "../features/tickets/routes/TicketRoutes"
+import EventsRoutes from "../features/events/routes/EventsRoutes"
 import GradebookRoutes from "../features/gradebook/routes/GradebookRoutes"
 import EventsRoutes from "../features/events/routes/EventsRoutes"
 import ForumsRoutes from "../features/forum/routes/ForumRoutes"
@@ -234,6 +239,43 @@ const AppRoutes = () => {
      />
 
       <Route
+        path="/batches/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+              <DashboardLayout>
+                <TicketsRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/tickets/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+              <DashboardLayout>
+                <TicketsRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+    
+      <Route
+        path="/events/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+              <DashboardLayout>
+                <EventsRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
        path="/payments"
        element={
          <ProtectedRoute>

@@ -1,19 +1,19 @@
 import api from "../../../api/axios";
 
 export const getUsers = () =>
-  api.get("/users");
+  api.get("/support");
 
 export const getUserById = (id) =>
-  api.get(`/users/${id}`);
+  api.get(`/support/${id}`);
 
 export const createUser = (data) =>
-  api.post("/auth/register", data);
+  api.post("/support", data);
 
 export const updateUser = (id, data) =>
-  api.put(`/users/${id}`, data);
+  api.put(`/support/${id}`, data);
 
 export const deleteUser = (id) =>
-  api.delete(`/users/${id}`);
+  api.delete(`/support/${id}`);
 
 // ==================== COMPLAINTS / TICKETS ====================
 

@@ -32,7 +32,7 @@ const CreateTicketPage = () => {
   };
 
   return (
-    <>
+    <div>
       <div>
         <h3>Add Ticket</h3>
       </div>
@@ -42,7 +42,7 @@ const CreateTicketPage = () => {
         onSubmit={handleSubmit}
         error={error}
       />
-    </>
+    </div>
   );
 };
 

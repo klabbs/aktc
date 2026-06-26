@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUsers } from "../api/usersApi";
-import { createComplaint, getComplaints } from "../api/Ticketapi";
+import { getUsers, createComplaint, getComplaints } from "../api/Ticketapi";
 
 export const useUsers = () => {
   const [users, setUsers] = useState([]);
@@ -50,3 +49,4 @@ export const useUsers = () => {
     submitComplaint,
   };
 };
+export default useUsers;
