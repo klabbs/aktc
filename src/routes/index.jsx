@@ -21,6 +21,7 @@ import UsersRoutes from "../features/users/routes/UsersRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes";
 import BatchRoutes from "../features/batches/routes/BatchRoutes";
 import EnrollRoutes from "../features/enrollment/routes/EnrollRoutes";
+import TicketRoutes from "../features/tickets/routes/TicketRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
 import GradebookRoutes from "../features/gradebook/routes/GradebookRoutes"
 import EventsRoutes from "../features/events/routes/EventsRoutes"
@@ -185,6 +186,17 @@ const AppRoutes = () => {
         }
       />
       <Route
+        path="/admin/tickets/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin", "instructor"]}>
+              <DashboardLayout>
+                <TicketRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
        path="/gradebook"
        element={
          <ProtectedRoute>
