@@ -13,7 +13,7 @@ const UserForm = ({
       }));
     };
 
-    const handleSubmit = async (e) => {console.log("fff22")
+    const handleSubmit = async (e) => {
         e.preventDefault();
     
         try {
@@ -66,7 +66,7 @@ const UserForm = ({
         >
           <option value="student">Student</option>
           <option value="instructor">Instructor</option>
-          <option value="manager">Manager</option>
+          <option value="management">Manager</option>
           <option value="admin">Admin</option>
         </select>
   

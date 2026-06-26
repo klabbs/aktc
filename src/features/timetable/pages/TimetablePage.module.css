@@ -1,0 +1,273 @@
+
+
+.main{
+padding:30px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:white;
+padding:20px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.download-btn{
+background:#5d5cf6;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:20px;
+cursor:pointer;
+}
+
+.top-actions{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.week-header{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+text-align:center;
+margin:30px 0;
+font-weight:600;
+}
+
+.calendar{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:20px;
+}
+
+.day{
+background:white;
+border-radius:20px;
+padding:15px;
+min-height:450px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.class-card{
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+.purple{
+background:#ecebff;
+}
+
+.violet{
+background:#f0e5ff;
+}
+
+.red{
+background:#ffe5e5;
+}
+
+.blue{
+background:#e8eeff;
+}
+
+.green{
+background:#dff9ef;
+}
+
+.yellow{
+background:#fff4d9;
+}
+
+.class-card small{
+font-size:12px;
+color:#666;
+}
+
+.class-card h4{
+margin-top:8px;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.stat-card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.progress{
+height:8px;
+background:#eee;
+border-radius:20px;
+margin-top:15px;
+}
+
+.fill{
+height:100%;
+width:82%;
+background:#5d5cf6;
+border-radius:20px;
+}
+
+.stat-card button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+border-radius:15px;
+background:#5d5cf6;
+color:white;
+}
+
+.floating-btn{
+position:fixed;
+right:30px;
+bottom:30px;
+width:60px;
+height:60px;
+border:none;
+border-radius:50%;
+background:#5d5cf6;
+color:white;
+font-size:30px;
+cursor:pointer;
+box-shadow:0 10px 20px rgba(93,92,246,.3);
+}
+
+@media(max-width:1100px){
+
+.dashboard{
+grid-template-columns:1fr;
+}
+
+.sidebar{
+display:none;
+}
+
+.calendar{
+grid-template-columns:1fr;
+}
+
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+.week-header{
+display:none;
+}
+
+}
+
+/* Tablet */
+@media (max-width: 1024px){
+
+    .topbar{
+        flex-direction:column;
+        gap:15px;
+        align-items:stretch;
+    }
+
+    .top-actions{
+        justify-content:space-between;
+        width:100%;
+    }
+
+    .calendar{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px){
+
+    html,
+    body{
+        overflow-x:hidden;
+    }
+
+    .main{
+        padding:15px;
+    }
+
+    .topbar{
+        padding:15px;
+    }
+
+    .top-actions{
+        flex-direction:column;
+        align-items:stretch;
+        gap:10px;
+    }
+
+    .download-btn{
+        width:100%;
+    }
+
+    .calendar{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+    .day{
+        min-height:auto;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .floating-btn{
+        width:50px;
+        height:50px;
+        font-size:24px;
+        right:15px;
+        bottom:15px;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 480px){
+
+    .main{
+        padding:10px;
+    }
+
+    .topbar{
+        border-radius:15px;
+    }
+
+    .day{
+        padding:12px;
+    }
+
+    .class-card{
+        padding:12px;
+    }
+
+    .stat-card{
+        padding:15px;
+    }
+
+    .download-btn{
+        padding:10px 15px;
+        font-size:14px;
+    }
+
+    .floating-btn{
+        width:45px;
+        height:45px;
+        font-size:20px;
+    }
+}
