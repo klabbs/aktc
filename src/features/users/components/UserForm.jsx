@@ -13,7 +13,7 @@ const UserForm = ({
       }));
     };
 
-    const handleSubmit = async (e) => {console.log("fff22")
+    const handleSubmit = async (e) => {
         e.preventDefault();
     
         try {

@@ -1,5 +1,4 @@
-import axiosInstance from "./axios"
-
+import axiosInstance from "./axios";
 export const loginUser = async (userData) => {
   const response = await axiosInstance.post(
     "/auth/login",

@@ -1,29 +1,25 @@
 import { useState } from "react";
+import { createCourse } from "../api/coursesApi";
 import CourseForm from "../components/CourseForm";
 
 const CreateCoursePage = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    role: "student",
-  });
+  const [formData, setFormData] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+
+    await createCourse(formData);
+
+    // navigate(...)
   };
 
   return (
-      <>
-      <div>
-          <h3>Add Course</h3>
-      </div>
     <CourseForm
       formData={formData}
       setFormData={setFormData}
       onSubmit={handleSubmit}
+      submitText="Create Course"
     />
-    </>
   );
 };
 
