@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AnnouncementForm from "../../announcement/components/announcementform";
-import { createAnnouncement } from "../../announcement/api/announcement";
+import { ClassesForm } from "./../components/classesform";
+import { createClasses } from "./../api/classesApi";
 
 const CreateClassPage = () => {
   const navigate = useNavigate();
@@ -15,8 +15,8 @@ const CreateClassPage = () => {
     e.preventDefault();
 
     try {
-      await createAnnouncement(formData);
-      navigate("/admin/announcements");
+      await createClasses(formData);
+      navigate("/admin/classes");
     } catch (error) {
       console.error(error);
     }
@@ -24,8 +24,8 @@ const CreateClassPage = () => {
 
   return (
     <>
-      <h1>Create Announcement</h1>
-      <AnnouncementForm
+      <h1>Create Class</h1>
+      <ClassForm
         formData={formData}
         setFormData={setFormData}
         onSubmit={handleSubmit}

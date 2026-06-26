@@ -19,10 +19,15 @@ import StudentDashboard from "../pages/student/StudentDashboard"
 //Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
-import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
-import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes";
-import WalletRoutes from "../features/wallet/routes/WalletsRoutes";
+import GradebookRoutes from "../features/gradebook/routes/GradebookRoutes"
+import EventsRoutes from "../features/events/routes/EventsRoutes"
+import ForumsRoutes from "../features/forum/routes/ForumRoutes"
+import WalletsRoutes from "../features/wallets/routes/WalletsRoutes"
+import TimetableRoutes from "../features/timetable/routes/TimetableRoutes"
+import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes"
+import ClassesRoutes from "../features/classes/routes/ClassesRoutes"
 
+    
 const AppRoutes = () => {
   return (
     <Routes>
@@ -112,54 +117,194 @@ const AppRoutes = () => {
         }
       />
       <Route
-        path="/courses/*"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor"]}>
-              <DashboardLayout>
-                <CoursesRoutes />
-              </DashboardLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
+       path="/gradebook"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <GradebookRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/gradebook/:id"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <GradebookRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/gradebook/*"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin"]}>
+             <DashboardLayout>
+               <GradebookRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+
       <Route
-        path="/batches/*"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin", "management", "instructor", "student"]}>
-              <DashboardLayout>
-                <CoursesRoutes />
-              </DashboardLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/payments/*"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
-              <DashboardLayout>
-                <PaymentsRoutes />
-              </DashboardLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/wallet/*"
-        element={
-          <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
-              <DashboardLayout>
-                <WalletRoutes />
-              </DashboardLayout>
-            </RoleRoute>
-          </ProtectedRoute>
-        }
-      />
-      
+       path="/payments"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <PaymentsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/payments/:id"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <PaymentsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/payments/*"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin"]}>
+             <DashboardLayout>
+               <PaymentsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+
+
+    <Route
+       path="/timetables"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <TimetableRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/timetables/:id"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <TimetableRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/timetables/*"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin"]}>
+             <DashboardLayout>
+               <TimetableRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+
+
+    <Route
+       path="/wallets"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <WalletsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/wallets/:id"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <WalletsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/wallets/*"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin"]}>
+             <DashboardLayout>
+               <WalletsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+
+    <Route
+       path="/forums"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <ForumsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/forums/:id"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <ForumsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     <Route
+       path="/forums/*"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin"]}>
+             <DashboardLayout>
+               <ForumsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+
+
+
     </Routes>
 
     

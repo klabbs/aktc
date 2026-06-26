@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getClassById } from "../api/classApi";
+import { getClassById } from "../api/classesApi";
 
 const ClassDetails = () => {
   const { id } = useParams();

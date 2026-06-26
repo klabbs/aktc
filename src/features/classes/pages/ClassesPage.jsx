@@ -1,4 +1,4 @@
-import ClassTable from "../components/ClassTable";
+// import ClassTable from "../components/ClassTable";
 import useDocumentTitle from "../../../hooks/UseDocumentTitle";
 
 const ClassesPage = () => {
@@ -7,7 +7,7 @@ const ClassesPage = () => {
   return (
     <>
       <h1>Classes</h1>
-      <ClassTable />
+      {/* <ClassTable /> */}
     </>
   );
 };
