@@ -1,11 +1,21 @@
 import { Routes, Route } from "react-router-dom";
 import RoleRoute from "../../../routes/role";
 import CoursesPage from "../pages/CoursesPage";
+import CoursePage from "../pages/CoursesPage";
 // import CourseDetailsPage from "../pages/CourseDetailsPage";
 import CreateCoursePage from "../pages/CreateCoursePage";
 import EditCoursePage from "../pages/EditCoursePage";
 
+
 const CoursesRoutes = () => {
+ return (
+   <Routes>
+     <Route index element={<CoursesPage />} />
+     <Route path="new" element={<CreateCoursePage />} />
+     <Route path=":id" element={<CoursePage />} />
+     <Route path=":id/edit" element={<CoursePage />} />
+   </Routes>
+ );
   return (
     <Routes>
       {/* Everyone can view */}
@@ -39,5 +49,6 @@ const CoursesRoutes = () => {
     // </Routes>
   );
 };
+
 
 export default CoursesRoutes;

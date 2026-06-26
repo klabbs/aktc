@@ -1,0 +1,105 @@
+.batch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.batch-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.batch-header p {
+  color: #666;
+  margin-top: 5px;
+}
+
+.add-batch-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-batch-btn:hover {
+  background: #1d4ed8;
+}
+
+.batch-form-container {
+  background: white;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.batch-form {
+  display: grid;
+  gap: 15px;
+}
+
+.batch-form input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.batch-form button {
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.batch-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.batch-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.batch-card:hover {
+  transform: translateY(-5px);
+}
+
+.batch-card h2 {
+  margin-bottom: 10px;
+}
+
+.batch-card p {
+  color: #666;
+}
+
+.students {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 6px 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.batch-card button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
