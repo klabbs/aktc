@@ -116,7 +116,6 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-    
       <Route
        path="/gradebook"
        element={

@@ -37,8 +37,8 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
        <div className="profile">
             {/* <img src="https://i.pravatar.cc/60?img=5" alt=""/> */}
             <div>
-                <h4>Dr. Elena Silk</h4>
-                <span>Senior Faculty</span>
+                <h4>{user.name}</h4>
+                <span style={{ textTransform: 'capitalize' }}>{user.role}</span>
             </div>
        </div>
       

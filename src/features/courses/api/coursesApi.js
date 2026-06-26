@@ -3,11 +3,11 @@ import api from "../../../api/axios";
 export const getCourses = () =>
   api.get("/courses");
 
-export const getCourseById = (id) =>
+export const getCourse = (id) =>
   api.get(`/courses/${id}`);
 
 export const createCourse = (data) =>
-  api.post("/auth/register", data);
+  api.post("/courses", data);
 
 export const updateCourse = (id, data) =>
   api.put(`/courses/${id}`, data);
