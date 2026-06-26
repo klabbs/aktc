@@ -1,6 +1,6 @@
 // import CourseTable from "../components/CourseTable";
 import "../styles/paymentPage.css"
-import { usePayment } from "../hooks/usePayments";
+import { usePayment } from "../hooks/usePayment";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 

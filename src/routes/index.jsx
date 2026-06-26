@@ -19,8 +19,8 @@ import StudentDashboard from "../pages/student/StudentDashboard"
 //Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
-import PaymentsRoutes from "../features/payments/routes/CoursesRoutes"
-import WalletRoutes from "../features/wallet/routes/CoursesRoutes"
+import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes";
+import WalletRoutes from "../features/wallet/routes/WalletsRoutes";
 
 const AppRoutes = () => {
   return (
