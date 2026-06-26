@@ -93,6 +93,10 @@
     border-radius:50%;
 }
 
+.profile span{
+    color:#777;
+}
+
 .main{
     flex:1;
     padding:25px;

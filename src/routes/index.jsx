@@ -19,6 +19,7 @@ import StudentDashboard from "../pages/student/StudentDashboard"
 //Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
+import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
 import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes";
 import WalletRoutes from "../features/wallet/routes/WalletsRoutes";
 
@@ -110,9 +111,8 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-    
       <Route
-        path="/batches"
+        path="/courses/*"
         element={
           <ProtectedRoute>
             <RoleRoute allowedRoles={["admin","management","instructor"]}>
