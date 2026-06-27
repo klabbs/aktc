@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AnnouncementForm from "../components/announcementform";
-import { createAnnouncement } from "../api/announcement";
+import AnnouncementForm from "../components/AnnouncementForm";
+import { createAnnouncement } from "../api/announcenmentApi";
 
 const CreateAnnouncementPage = () => {
   const navigate = useNavigate();

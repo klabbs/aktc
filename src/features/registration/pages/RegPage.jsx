@@ -1,6 +1,6 @@
-import RegCard from "../components/RegCard"
-import RegDetailsPage from "../components/RegDetailsPage"
-import RegForm from "../components/RegForm"
+// import RegCard from "../components/RegCard"
+// import RegDetailsPage from "../components/RegDetailsPage"
+// import RegForm from "../components/RegForm"
 
 
 const  RegPage = () => {
@@ -114,4 +114,5 @@ const  RegPage = () => {
     )
 }
 
+export default RegPage;
 

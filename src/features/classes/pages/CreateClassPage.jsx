@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ClassesForm } from "./../components/classesform";
+import  ClassesForm  from "./../components/classesform";
 import { createClasses } from "./../api/classesApi";
 
 const CreateClassPage = () => {

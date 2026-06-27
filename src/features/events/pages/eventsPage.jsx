@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import EventsTable from "../components/EventsTable";
+// import EventsTable from "../components/EventsTable";
 import useDocumentTitle from "../../../hooks/UseDocumentTitle";
 import "../styles/events.css";
 
@@ -80,7 +80,7 @@ const EventsPage = () => {
 
         {/* Events Table */}
         <div className="events-form-container">
-          <EventsTable />
+          {/* <EventsTable /> */}
         </div>
 
         {/* Insights */}

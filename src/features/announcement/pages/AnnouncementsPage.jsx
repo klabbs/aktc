@@ -1,4 +1,4 @@
-import AnnouncementTable from "../components/AnnouncementTable";
+// import AnnouncementTable from "../components/AnnouncementTable";
 import useDocumentTitle from "../../../hooks/UseDocumentTitle";
 
 const AnnouncementsPage = () => {
@@ -111,7 +111,7 @@ const AnnouncementsPage = () => {
       </div>
 
       <h1>Announcements</h1>
-      <AnnouncementTable />
+      {/* <AnnouncementTable /> */}
     </>
   );
 };

@@ -1,7 +1,7 @@
 // constants/roles.js
 export const ROLES = {
     ADMIN: "admin",
-    MANAGER: "manager",
+    MANAGER: "management",
     INSTRUCTOR: "instructor",
     STUDENT: "student",
 };
