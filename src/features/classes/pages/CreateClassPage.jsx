@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ClassesForm } from "./../components/classesform";
-import { createClasses } from "./../api/classesApi";
+import { createClasses } from "../api/classesApi";
+import  ClassForm  from "../components/ClassForm";
 
 const CreateClassPage = () => {
   const navigate = useNavigate();
@@ -13,7 +13,6 @@ const CreateClassPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       await createClasses(formData);
       navigate("/admin/classes");

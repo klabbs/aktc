@@ -3,6 +3,7 @@ import ClassesPage from "../pages/ClassesPage";
 import ClassPage from "../pages/ClassPage";
 import CreateClassPage from "../pages/CreateClassPage";
 
+
 const ClassesRoutes = () => {
   return (
     <Routes>

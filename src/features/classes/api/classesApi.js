@@ -1,6 +1,7 @@
 import api from "../../../api/axios";
 
-export const getClasses = () =>
+export const getClasses
+ = () =>
   api.get("/classes");
 
 export const getClassById = (id) =>

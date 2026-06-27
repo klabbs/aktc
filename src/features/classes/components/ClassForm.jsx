@@ -1,4 +1,5 @@
-const ClassesForm = ({
+import { createClasses } from "../api/classesApi"; 
+const ClassForm = ({
   formData,
   setFormData,
   onSubmit,
@@ -13,8 +14,27 @@ const ClassesForm = ({
     }));
   };
 
-  return (
-    <form onSubmit={onSubmit}>
+  const handleSubmit = async (e) => {console.log("fff22")
+        e.preventDefault();
+    
+        try {
+          //setError("");
+    
+          const response = await createClasses(formData)
+          const data = response.data;
+            console.log("fff",data)
+          
+          //navigate("/"+data.user?.role);
+        } catch (err) {
+          setError(
+            err?.response?.data?.message ||
+              "failed"
+          );
+        }
+      };
+  
+    return (
+      <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="className">Class Name</label>
         <input
@@ -80,4 +100,4 @@ const ClassesForm = ({
   );
 };
 
-export default ClassesForm;
+export default ClassForm;
