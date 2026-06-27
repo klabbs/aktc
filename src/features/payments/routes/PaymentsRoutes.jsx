@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import PaymentsPage from "../pages/PaymentsPage";
+import PaymentPage from "../pages/PaymentPage";
 // import CreatePaymentsPage from "../pages/CreatePaymentsPage";
 
 

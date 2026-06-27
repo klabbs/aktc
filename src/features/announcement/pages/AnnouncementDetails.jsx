@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { getAnnouncementById, deleteAnnouncement } from "../api/announcementApi";
+import { getAnnouncementById, deleteAnnouncement } from "../api/announcenmentApi";
 
 const AnnouncementDetails = () => {
   const { id } = useParams();
