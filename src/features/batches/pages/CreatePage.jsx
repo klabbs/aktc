@@ -1,24 +1,26 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import  ClassesForm  from "./../components/classesform";
-import { createClasses } from "./../api/classesApi";
+import  FormPage  from "../components/form";
+import { createData } from "../api";
 
-const CreateClassPage = () => {
+const CreatePage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    title: "",
+    course: "",
+    batchCode: "",
+    startDate: "",
+    endDate: "",
+    schedule:"",
+    capacity: "",
     instructor: "",
-    dateTime: "",
-    room: "",
-    description: ""
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await createClasses(formData);
-      navigate("/classes");
+      await createData(formData);
+      navigate("/batches");
     } catch (error) {
       console.error(error);
     }
@@ -26,7 +28,7 @@ const CreateClassPage = () => {
 
   return (
     <>
-      <ClassesForm
+      <FormPage
         formData={formData}
         setFormData={setFormData}
         onSubmit={handleSubmit}
@@ -35,4 +37,4 @@ const CreateClassPage = () => {
   );
 };
 
-export default CreateClassPage;
+export default CreatePage;

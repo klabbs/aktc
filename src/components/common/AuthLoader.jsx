@@ -10,7 +10,7 @@ const AuthLoader = () => {
 
         {/* Brand */}
         <h1 className="text-2xl font-bold text-blue-600">
-          AKTC Classroom
+          AKTC PORTAL
         </h1>
 
         {/* Loading Text */}

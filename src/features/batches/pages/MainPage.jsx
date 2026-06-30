@@ -1,30 +1,15 @@
-import  "./Ticket.css";
-import TicketTable from "../components/TicketTable";
-import TicketForm from "../components/TicketForm";
-import CreateTicketPage from "../pages/CreateTicketPage";
-import { useState } from "react";
+import useDocumentTitle from "../../../hooks/UseDocumentTitle";
+import { useNavigate, useParams, Link } from "react-router-dom";
+import { useBatches } from "../hooks";
 
-const TicketPage = () => {
-
+const MainPage = () => {
+  useDocumentTitle("Batches | AKTC");
+  const navigate = useNavigate();
+  const { batches, loading, error } = useBatches();
   return (
     <>
       <main className="main">
 
-          
-            <div className="topbar">
-                <div>
-                    <h2>Gradebook</h2>
-                    <p>Advanced Calculus • Section B</p>
-                </div>
-
-                <div className="top-right">
-                    <i className="fa-regular fa-bell"></i>
-                    <span>Elena S.</span>
-                    <img src="https://i.pravatar.cc/40?img=12" alt=""/>
-                </div>
-            </div>
-
-            
             <div className="stats">
 
                 <div className="card">
@@ -33,7 +18,7 @@ const TicketPage = () => {
                     <small className="green">+2.1%</small>
                 </div>
 
-                <div className="card">
+                <div className="card"> 
                     <p>Pending Reviews</p>
                     <h2>12</h2>
                     <small>Assignments</small>
@@ -58,13 +43,33 @@ const TicketPage = () => {
             <div className="content">
 
                
-                <TicketTable />
+                <div className="submissions">
 
-                
+                    <h3>Recent Batches</h3>
+                    {batches.map((data) => (
+                        <Link to={`edit/${data._id}`} key={data._id}>
+                        <div className="row" key={data._id}>
+                            <img 
+                            src={`https://api.dicebear.com/10.x/shapes/svg?seed=${data._id}`}
+                            />
+                            <span className="mr-5">
+                                {data.batchCode}<br/>
+                                <strong>{data.course.title}</strong>
+                            </span>
+                            <span className="status overdue"><strong>10/100</strong></span>
+                        </div>
+                        </Link>
+                     ))}
+                </div>
+
+               
                 <div className="right-panel">
 
-                    
-                    <CreateTicketPage/>
+                    <div className="grade-card">
+                        <h3>Add New Batch Details</h3>
+
+                        <button onClick={() => navigate(`new`)}>Add Batch</button>
+                    </div>
 
                     <div className="insights">
                         <h4>Assignment Insights</h4>
@@ -87,4 +92,4 @@ const TicketPage = () => {
   );
 };
 
-export default TicketPage
+export default MainPage;
