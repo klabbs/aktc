@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import CourseRegisterPage from "../pages/CourseRegistration";
 
 import DashboardPage from "../pages/dashboard/DashboardPage";
 
@@ -22,7 +23,7 @@ import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes"
 import WalletsRoutes from "../features/wallets/routes/WalletsRoutes"
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes";
 import RegistrationRoutes from "../features/registration/routes/RegistrationRoutes";
-import BatchRoutes from "../features/batches/routes/BatchRoutes";
+import BatchRoutes from "../features/batches/routes";
 import EnrollRoutes from "../features/enrollment/routes/EnrollRoutes";
 import ClassesRoutes from "../features/classes/routes/ClassesRoutes"
 import TimetableRoutes from "../features/timetable/routes/TimetableRoutes"
@@ -52,6 +53,8 @@ const AppRoutes = () => {
       <Route path="/login" element={<LoginPage />} />
 
       <Route path="/register" element={<RegisterPage />} />
+
+      <Route path="/course-registration/:id" element={<CourseRegisterPage />} />
 
       {/* PROTECTED ROUTES */}
       <Route
@@ -149,7 +152,6 @@ const AppRoutes = () => {
                 "admin",
                 "management",
                 "instructor",
-                "student",
               ]}
             >
               <DashboardLayout>
@@ -193,7 +195,7 @@ const AppRoutes = () => {
       />
 
      <Route
-       path="/wallets/*"
+       path="/wallet/*"
        element={
          <ProtectedRoute>
            <RoleRoute

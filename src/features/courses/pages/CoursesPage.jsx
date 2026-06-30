@@ -24,7 +24,7 @@ const CoursesPage = () => {
 
         <div className="course-gridxS">
 
-          <CourseCard />
+          <CourseCard linkBase="/courses" />
         </div>
         
         <div className="promo-section">

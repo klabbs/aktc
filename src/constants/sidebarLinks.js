@@ -24,7 +24,7 @@ export const sidebarLinks = [
     {
       label: "Batches",
       path: "/batches",
-      roles: [ROLES.ADMIN,ROLES.MANAGER,ROLES.INSTRUCTOR,ROLES.STUDENT],
+      roles: [ROLES.ADMIN,ROLES.MANAGER,ROLES.INSTRUCTOR],
     },
     {
       label: "Registrations",
@@ -37,9 +37,14 @@ export const sidebarLinks = [
       roles: [ROLES.ADMIN,ROLES.MANAGER,ROLES.STUDENT],
     },
     {
-      label: "Wallets",
-      path: "/wallets",
+      label: "Wallet",
+      path: "/wallet",
       roles: [ROLES.ADMIN,ROLES.MANAGER,ROLES.STUDENT],
+    },
+    {
+      label: "Enrolments",
+      path: "/enrolments",
+      roles: [ROLES.ADMIN,ROLES.MANAGER,ROLES.INSTRUCTOR],
     },
     {
       label: "Classes",
@@ -64,12 +69,12 @@ export const sidebarLinks = [
     {
       label: "eLibrary",
       path: "/library",
-      roles: [ROLES.ADMIN, ROLES.INSTRUCTOR],
+      roles: [ROLES.ADMIN,ROLES.MANAGER,ROLES.INSTRUCTOR,ROLES.STUDENT],
     },
     {
       label: "Tickets",
       path: "/tickets",
-      roles: [ROLES.ADMIN, ROLES.INSTRUCTOR],
+      roles: [ROLES.ADMIN,ROLES.MANAGER,ROLES.INSTRUCTOR,ROLES.STUDENT],
     },
     {
       label: "Announcements",

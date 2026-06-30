@@ -1,33 +1,33 @@
 import { Routes, Route } from "react-router-dom";
 import RoleRoute from "../../../routes/role";
 
-import CoursesPage from "../pages/CoursesPage";
-import CoursePage from "../pages/CoursePage";
-import CreateCoursePage from "../pages/CreateCoursePage";
-import EditCoursePage from "../pages/EditCoursePage";
+import MainPage from "../pages/MainPage";
+import DetailPage from "../pages/DetailPage";
+import CreatePage from "../pages/CreatePage";
+import EditPage from "../pages/EditPage";
 
-const CoursesRoutes = () => {
+const BatchesRoutes = () => {
   return (
     <Routes>
       {/* PUBLIC (all allowed roles already filtered in parent route) */}
-      <Route index element={<CoursesPage />} />
-      <Route path=":id" element={<CoursePage />} />
+      <Route index element={<MainPage />} />
+      <Route path=":id" element={<DetailPage />} />
 
       {/* ADMIN ONLY ROUTES */}
       <Route
         path="new"
         element={
           <RoleRoute allowedRoles={["admin"]}>
-            <CreateCoursePage />
+            <CreatePage />
           </RoleRoute>
         }
       />
 
       <Route
-        path=":id/edit"
+        path="edit/:id"
         element={
           <RoleRoute allowedRoles={["admin"]}>
-            <EditCoursePage />
+            <EditPage />
           </RoleRoute>
         }
       />
@@ -35,4 +35,4 @@ const CoursesRoutes = () => {
   );
 };
 
-export default CoursesRoutes;
+export default BatchesRoutes;
