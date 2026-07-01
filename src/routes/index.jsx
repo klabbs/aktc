@@ -1,27 +1,42 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 
-import HomePage from "../pages/HomePage"
-import LoginPage from "../pages/LoginPage"
-import RegisterPage from "../pages/RegisterPage"
+import HomePage from "../pages/HomePage";
+import LoginPage from "../pages/LoginPage";
+import RegisterPage from "../pages/RegisterPage";
+import CourseRegisterPage from "../pages/CourseRegistration";
 
-import DashboardPage from "../pages/dashboard/DashboardPage"
+import DashboardPage from "../pages/dashboard/DashboardPage";
 
-import MainLayout from "../layouts/MainLayout"
-import DashboardLayout from "../layouts/DashboardLayout"
+import MainLayout from "../layouts/MainLayout";
+import DashboardLayout from "../layouts/DashboardLayout";
 
-import ProtectedRoute from "./protected"
-import RoleRoute from "./role"
+import ProtectedRoute from "./protected";
+import RoleRoute from "./role";
 
-import AdminDashboard from "../pages/admin/AdminDashboard"
-import InstructorDashboard from "../pages/instructor/InstructorDashboard"
-import StudentDashboard from "../pages/student/StudentDashboard"
+import AdminDashboard from "../pages/admin/AdminDashboard";
+import InstructorDashboard from "../pages/instructor/InstructorDashboard";
+import StudentDashboard from "../pages/student/StudentDashboard";
 
-//Feature Routes
+// Feature Routes
 import UsersRoutes from "../features/users/routes/UsersRoutes";
-import CoursesRoutes from "../features/courses/routes/CoursesRoutes"
-import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes";
-import WalletRoutes from "../features/wallet/routes/WalletsRoutes";
+import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes"
+import WalletsRoutes from "../features/wallets/routes/WalletsRoutes"
+import CoursesRoutes from "../features/courses/routes/CoursesRoutes";
+import RegistrationRoutes from "../features/registration/routes/RegistrationRoutes";
+import BatchRoutes from "../features/batches/routes";
+import EnrollRoutes from "../features/enrollment/routes/EnrollRoutes";
+import ClassesRoutes from "../features/classes/routes/ClassesRoutes"
+import TimetableRoutes from "../features/timetable/routes/TimetableRoutes"
+import AttendanceRoutes from "../features/attendance/routes/AttendanceRoutes"
+import TicketsRoutes from "../features/tickets/routes/TicketRoutes"
+import AnnouncementRoutes from "../features/announcement/routes/AnnouncementRoutes"
+import GradebookRoutes from "../features/gradebook/routes/GradebookRoutes"
+import EventsRoutes from "../features/events/routes/EventsRoutes"
+import ForumsRoutes from "../features/forum/routes/ForumRoutes"
+import LibraryRoutes from "../features/library/routes/LibraryRoutes"
+import ReportRoutes from "../features/library/routes/LibraryRoutes"
 
+    
 const AppRoutes = () => {
   return (
     <Routes>
@@ -35,15 +50,11 @@ const AppRoutes = () => {
         }
       />
 
-      <Route
-        path="/login"
-        element={<LoginPage />}
-      />
+      <Route path="/login" element={<LoginPage />} />
 
-      <Route
-        path="/register"
-        element={<RegisterPage />}
-      />
+      <Route path="/register" element={<RegisterPage />} />
+
+      <Route path="/course-registration/:id" element={<CourseRegisterPage />} />
 
       {/* PROTECTED ROUTES */}
       <Route
@@ -57,7 +68,7 @@ const AppRoutes = () => {
         }
       />
 
-      {/*ROLE-BASED ROUTES*/}
+      {/* ROLE-BASED ROUTES */}
       <Route
         path="/admin"
         element={
@@ -97,7 +108,8 @@ const AppRoutes = () => {
         }
       />
 
-      {/*FEATURES-ROUTES*/}
+      {/* FEATURE ROUTES */}
+
       <Route
         path="/admin/users/*"
         element={
@@ -110,12 +122,19 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
-    
+
       <Route
-        path="/batches"
+        path="/courses/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor"]}>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
               <DashboardLayout>
                 <CoursesRoutes />
               </DashboardLayout>
@@ -123,23 +142,50 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+
       <Route
         path="/batches/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin", "management", "instructor", "student"]}>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+              ]}
+            >
               <DashboardLayout>
-                <CoursesRoutes />
+                <BatchRoutes />
               </DashboardLayout>
             </RoleRoute>
           </ProtectedRoute>
         }
       />
+
+       <Route
+        path="/registration/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "student",
+              ]}
+            >
+              <DashboardLayout>
+                <RegistrationRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+
       <Route
         path="/payments/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+            <RoleRoute allowedRoles={["admin", "management", "students"]}>
               <DashboardLayout>
                 <PaymentsRoutes />
               </DashboardLayout>
@@ -147,23 +193,228 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+
+     <Route
+       path="/wallet/*"
+       element={
+         <ProtectedRoute>
+           <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "student",
+              ]}
+            >
+             <DashboardLayout>
+               <WalletsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+        }
+      /> 
+
       <Route
-        path="/wallet/*"
+        path="/enrollment/*"
         element={
           <ProtectedRoute>
-            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
               <DashboardLayout>
-                <WalletRoutes />
+                <EnrollRoutes />
               </DashboardLayout>
             </RoleRoute>
           </ProtectedRoute>
         }
       />
-      
+
+      <Route
+        path="/classes/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={[
+              "admin",
+              "management",
+              "instructor",
+              "student"
+            ]}>
+            <DashboardLayout>
+              <ClassesRoutes />
+            </DashboardLayout>
+          </RoleRoute>
+        </ProtectedRoute>
+       }
+      />
+
+      <Route
+        path="/timetable/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={[
+              "admin",
+              "management",
+              "instructor",
+              "student"
+            ]}>
+            <DashboardLayout>
+              <TimetableRoutes />
+            </DashboardLayout>
+          </RoleRoute>
+        </ProtectedRoute>
+       }
+      />
+
+      <Route
+        path="/attendance/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={[
+              "admin",
+              "management",
+              "instructor",
+              "student"
+            ]}>
+            <DashboardLayout>
+              <AttendanceRoutes />
+            </DashboardLayout>
+          </RoleRoute>
+        </ProtectedRoute>
+       }
+      />
+
+      <Route
+        path="/tickets/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
+              <DashboardLayout>
+                <TicketsRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+       path="/gradebook/*"
+       element={
+         <ProtectedRoute>
+           <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+             <DashboardLayout>
+               <GradebookRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+      />
+
+      <Route
+        path="/events/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute allowedRoles={["admin","management","instructor","student"]}>
+              <DashboardLayout>
+                <EventsRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+
+     <Route
+       path="/forums/*"
+       element={
+         <ProtectedRoute>
+           <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
+             <DashboardLayout>
+               <ForumsRoutes />
+             </DashboardLayout>
+           </RoleRoute>
+         </ProtectedRoute>
+       }
+     />
+     
+     <Route
+        path="/anouncements/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
+              <DashboardLayout>
+                <AnnouncementRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/library/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
+              <DashboardLayout>
+                <LibraryRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/reports/*"
+        element={
+          <ProtectedRoute>
+            <RoleRoute
+              allowedRoles={[
+                "admin",
+                "management",
+                "instructor",
+                "student",
+              ]}
+            >
+              <DashboardLayout>
+                <ReportRoutes />
+              </DashboardLayout>
+            </RoleRoute>
+          </ProtectedRoute>
+        }
+      />
+
     </Routes>
+  );
+};
 
-    
-  )
-}
-
-export default AppRoutes
+export default AppRoutes;

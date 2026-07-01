@@ -5,7 +5,22 @@
     font-family:'Segoe UI',sans-serif;
 }
 
+:root {
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+}
 
+.mb-1 { margin-bottom: var(--space-1); }
+.mb-2 { margin-bottom: var(--space-2); }
+.mb-3 { margin-bottom: var(--space-3); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-5 { margin-bottom: var(--space-5); }
+
+.mt-5 { margin-top: var(--space-5); }
+.mr-5 { margin-right: var(--space-5); }
 .container{
     display:flex;
     min-height:100vh;
@@ -29,7 +44,22 @@
     background:rgba(0,0,0,.4);
     z-index:999;
 }
-
+h1,h2,h3 {
+    display: block;
+    font-size: 1.8em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+h2{
+    font-size: 1.5em;
+}
+h3{
+    font-size: 1.17em;
+}
 .logo h3{
     color:#6366f1;
     font-size:18px;
@@ -91,6 +121,10 @@
 .profile img{
     width:45px;
     border-radius:50%;
+}
+
+.profile span{
+    color:#777;
 }
 
 .main{
