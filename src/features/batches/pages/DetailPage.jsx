@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getById } from "../api";
 
-const ClassDetails = () => {
+const DetailPage = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
 
@@ -34,4 +34,4 @@ const ClassDetails = () => {
   );
 };
 
-export default ClassDetails;
+export default DetailPage;

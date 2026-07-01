@@ -1,15 +1,14 @@
 import useDocumentTitle from "../../../hooks/UseDocumentTitle";
-import EnrollForm from "../components/form";
-import { useEnrollment } from "../hooks";
 import { useNavigate, useParams } from "react-router-dom";
+import { useBatches } from "../hooks";
 
-const EnrollPage = () => {
-  useDocumentTitle("Enrollment | AKTC");
+const MainPage = () => {
+  useDocumentTitle("Batches | AKTC");
   const navigate = useNavigate();
-  const { enrollment, loading, error } = useEnrollment();
+  const { batches, loading, error } = useBatches();
   return (
-
-  <div><main className="main">
+    <>
+      <main className="main">
 
             <div className="stats">
 
@@ -46,45 +45,28 @@ const EnrollPage = () => {
                
                 <div className="submissions">
 
-                    <h3>Recent Student Submissions</h3>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=8"/>
-                        <span>Alex Rivera</span>
-                        <span className="status submitted">Submitted</span>
-                        <strong>92/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=9" />
-                        <span>Sarah Jenkins</span>
-                        <span className="status grading">Grading</span>
-                        <strong>--/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=10" />
-                        <span>Liam O'Connell</span>
-                        <span className="status submitted">Submitted</span>
-                        <strong>78/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=11" />
-                        <span>Maya Pat</span>
-                        <span className="status overdue">Overdue</span>
-                        <strong>0/100</strong>
-                    </div>
-
+                    <h3>Recent Batches</h3>
+                    {batches.map((data) => (
+                        <div className="row" key={data._id}>
+                            <img 
+                            src={`https://api.dicebear.com/10.x/shapes/svg?seed=${data._id}`}
+                            />
+                            <span className="mr-5">
+                                {data.batchCode}<br/>
+                                <strong>{data.course.title}</strong>
+                            </span>
+                            <span className="status overdue"><strong>10/100</strong></span>
+                        </div>
+                     ))}
                 </div>
 
                
                 <div className="right-panel">
 
                     <div className="grade-card">
-                        <h3>Add New Enrollment Details</h3>
+                        <h3>Add New Batch Details</h3>
 
-                        <button onClick={() => navigate(`new`)}>Add Enrollment</button>
+                        <button onClick={() => navigate(`new`)}>Add Batch</button>
                     </div>
 
                     <div className="insights">
@@ -104,9 +86,8 @@ const EnrollPage = () => {
             </div>
 
         </main>
-      
-    </div>
+    </>
   );
 };
 
-export default EnrollPage;
+export default MainPage;

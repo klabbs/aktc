@@ -1,3 +1,5 @@
+import React from "react";
+
 const EnrollCard = ({ enrollment }) => {
   return (
     <div className="border p-4 rounded shadow">

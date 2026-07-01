@@ -1,9 +1,39 @@
-import styles from './TimetablePage.module.css';
+import './TimetablePage.css';
 // import TimetableTable from "../components/TimetableTable";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
+import { useClasses } from "../../classes/hooks";
+// import { useBatches } from "../hooks";
 
 const TimetablePage = () => {
   useDocumentTitle("Timetable | AKTC");
+  const { classes, loading, error } = useClasses();
+  
+  //BUILDWEEK - CALENDAR
+    const buildWeek = (classes) => {
+        const days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+        return days.map((day) => ({
+            day,
+            classes: classes
+            .filter((item) => {
+                return (
+                new Date(item.dateTime).toLocaleDateString("en-US", {
+                    weekday: "short",
+                }) === day
+                );
+            })
+            .map((item) => ({
+                id: item._id,
+                title: item.title,
+                room: item.room,
+                time: new Date(item.dateTime).toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                }),
+            })),
+        }));
+    };
+    const week = buildWeek(classes);
   return (
     <>
     <main className="main">
@@ -35,6 +65,19 @@ const TimetablePage = () => {
         </div>
 
     
+        <div className="calendar">
+            {week.map((day) => (
+                <div className="day" key={day.day}>
+                    {day.classes.map((lesson) => (
+                        <div className="className-card purple" key={lesson.id}>
+                        <small>{lesson.time}</small>
+                        <h4>{lesson.title}</h4>
+                        <p>Room {lesson.room}</p>
+                        </div>
+                    ))}
+                </div>
+            ))}
+        </div>
 
         <div className="calendar">
 
