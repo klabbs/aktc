@@ -5,23 +5,25 @@ export const usePayments = () => {
   const [payments, setPayments] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const fetchPayments = async () => {
+    try {
+      const res = await getPayments();
+      setPayments(res.data.data);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchPayments = async () => {
-      try {
-        const res = await getPayments();
-
-        // ✅ ALWAYS extract data the same way
-        setPayments(res.data.data);
-
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchPayments();
   }, []);
 
-  return { payments, loading };
+  return {
+    payments,
+    loading,
+    setPayments,     //  ADD THIS
+    fetchPayments,   //   (for refresh if needed)
+  };
 };
