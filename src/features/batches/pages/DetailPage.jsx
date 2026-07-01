@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getClassById } from "../api/classesApi";
+import { getById } from "../api";
 
-const ClassDetails = () => {
+const DetailPage = () => {
   const { id } = useParams();
   const [item, setItem] = useState(null);
 
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await getClassById(id);
+        const res = await getById(id);
         setItem(res.data?.data || res.data);
       } catch (error) {
         console.error(error);
@@ -34,4 +34,4 @@ const ClassDetails = () => {
   );
 };
 
-export default ClassDetails;
+export default DetailPage;

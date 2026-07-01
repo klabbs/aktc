@@ -1,4 +1,3 @@
-import styles from './PaymentsPage.module.css';
 // import PaymentsTable from "../components/PaymentsTable";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 

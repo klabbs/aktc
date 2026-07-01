@@ -1,5 +1,5 @@
-import LibraryTable from "../components/LibraryTable";
-import useDocumentTitle from "../../../hooks/UseDocumentTitle";
+import LibraryTable from "../components/libraryTable";
+import useDocumentTitle from "../../../hooks/useDocumentTitle";
 
 const LibraryPage = () => {
   useDocumentTitle("Library | AKTC");

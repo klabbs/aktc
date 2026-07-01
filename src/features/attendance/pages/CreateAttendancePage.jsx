@@ -1,17 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ForumForm from "../components/ForumForm";
-import { createData } from "../api/forumApi";
+import AttendanceForm from "../component/AttendanceForm";
+import { createData } from "../api/attendanceApi";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 
-const CreateForumPage = () => {
-  useDocumentTitle("New Forum Post | AKTC");
+const CreateAttendancePage = () => {
+  useDocumentTitle("New Attendance | AKTC");
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    title: "",
-    category: "general",
-    body: "",
+    studentName: "",
+    course: "",
+    date: "",
+    timeIn: "",
+    timeOut: "",
+    status: "present",
+    notes: "",
   });
   const [error, setError] = useState("");
 
@@ -20,25 +24,25 @@ const CreateForumPage = () => {
     try {
       setError("");
       await createData(formData);
-      navigate("/forums");
+      navigate("/attendance");
     } catch (err) {
       console.error(err);
-      setError(err?.response?.data?.message || "Failed to create forum post.");
+      setError(err?.response?.data?.message || "Failed to create attendance record.");
     }
   };
 
   return (
     <>
-      <h2>New Forum Post</h2>
+      <h2>New Attendance Record</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
-      <ForumForm
+      <AttendanceForm
         formData={formData}
         setFormData={setFormData}
         onSubmit={handleSubmit}
-        submitText="Create Post"
+        submitText="Create Attendance"
       />
     </>
   );
 };
 
-export default CreateForumPage;
+export default CreateAttendancePage;

@@ -1,3 +1,4 @@
+import './loginPage.css';
 import { useState } from "react";
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom";
@@ -62,48 +63,131 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <form
-        onSubmit={handleSubmit}
-        className="w-96 rounded-xl bg-white p-8 shadow-lg"
-      >
-        <h2 className="mb-6 text-2xl font-bold">
-          Login
-        </h2>
+    <div>
+      <div>
+        <div className="floating-card top-card">
+          <i className="fa-solid fa-rocket"></i>
+          <small>SEMESTER 2</small>
+          <h4>Registration Open</h4>
+      </div>
 
-        {error && (
-          <div className="mb-4 rounded bg-red-100 p-3 text-red-600">
-            {error}
+      {/* <!-- LOGIN SECTION --> */}
+
+      <div className="login-wrapper">
+
+          <div className="logo-box">
+
+              <div className="logo-circle">
+                  <i className="fa-solid fa-cube"></i>
+              </div>
+
+              <h1>APTECH COURSE PORTAL</h1>
+              <h2>KUBWA</h2>
+
+              <p>Mastering UI/UX Design</p>
+
           </div>
-        )}
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          className="mb-4 w-full rounded border p-3"
-          required
-        />
+          <div className="login-card">
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          className="mb-4 w-full rounded border p-3"
-          required
-        />
+              <form onSubmit={handleSubmit}>
+                
+          {error && (
+            <div className="mb-4 rounded bg-red-100 p-3 text-red-600">
+              {error}
+            </div>
+          )}
 
-        <button
-          type="submit"
-          className="w-full rounded bg-blue-600 p-3 text-white"
-        >
-          Login
-        </button>
-      </form>
+                  <label> Email</label>
+
+                  <div className="input-group">
+                      <i className="fa-regular fa-user"></i>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={formData.email}
+                        onChange={handleChange}
+                      placeholder="Enter your Email"
+                      required/>
+                  </div>
+
+                  <div className="password-row">
+                      <label>Password </label>
+                      
+                  </div>
+
+                  <div className="input-group">
+                      <i className="fa-solid fa-lock"></i>
+                      <input
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                      value={formData.password}
+                      onChange={handleChange}
+                      placeholder="••••••••"
+                      required/>
+                  </div>
+
+                  <div className="remember">
+                      <input type="checkbox"/>
+                      <span>Remember device</span>
+                  </div>
+
+                  <button type="submit" className="login-btn">
+                      Enter →
+                  </button>
+
+              </form>
+
+              <div className="social">
+
+                  <p>SOCIAL SIGN-IN</p>
+
+                  <div className="social-buttons">
+
+                      <button>
+                          <i className="fa-brands fa-google"></i>
+                      </button>
+
+                      <button>
+                          <i className="fa-brands fa-microsoft"></i>
+                      </button>
+
+                  </div>
+
+              </div>
+
+          </div>
+
+          <div className="signup">
+              New User?
+              <a href="#">Request account</a>
+          </div>
+
+          <div className="footer-links">
+              <a href="#">Support</a>
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Use</a>
+          </div>
+
+      </div>
+
+      {/* <!-- LIVE HELP --> */}
+
+      <div className="assistant-card">
+
+          <div className="assistant-avatar">
+              👨‍💼
+          </div>
+
+          <div>
+              <small>LIVEHELP</small>
+              <h4>Ask Assistant</h4>
+          </div>
+
+      </div>
+      </div>
     </div>
   );
 };

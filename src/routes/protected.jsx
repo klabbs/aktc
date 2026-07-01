@@ -9,14 +9,14 @@ const ProtectedRoute = ({ children }) => {
     authInitialized,
   } = useSelector((state) => state.auth)
 
+  if (!authInitialized) {
+    return <AuthLoader />
+  }
+
   if (!isAuthenticated) {
     return (
       <Navigate to="/login" replace/>
     )
-  }
-  
-  if (!authInitialized) {
-    return <AuthLoader />
   }
 
   return children

@@ -22,7 +22,7 @@ import PaymentsRoutes from "../features/payments/routes/PaymentsRoutes"
 import WalletsRoutes from "../features/wallets/routes/WalletsRoutes"
 import CoursesRoutes from "../features/courses/routes/CoursesRoutes";
 import RegistrationRoutes from "../features/registration/routes/RegistrationRoutes";
-import BatchRoutes from "../features/batches/routes/BatchRoutes";
+import BatchRoutes from "../features/batches/routes";
 import EnrollRoutes from "../features/enrollment/routes/EnrollRoutes";
 import ClassesRoutes from "../features/classes/routes/ClassesRoutes"
 import TimetableRoutes from "../features/timetable/routes/TimetableRoutes"

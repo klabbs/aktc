@@ -1,4 +1,6 @@
 import "./HomePage.css"
+import CourseCard from "../features/courses/components/CourseCard";
+
 
 const HomePage = () => {
     return (
@@ -311,7 +313,7 @@ const HomePage = () => {
                   </a>
 
               </div>
-
+                <CourseCard/>
               <div className="specialization-grid">
 
                   <div className="course-card">
