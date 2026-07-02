@@ -1,8 +1,11 @@
 import  "./Ticket.css";
 import TicketTable from "../components/TicketTable";
 import TicketForm from "../components/TicketForm";
+import CreateTicketPage from "../pages/CreateTicketPage";
+import { useState } from "react";
 
 const TicketPage = () => {
+
   return (
     <>
       <main className="main">
@@ -61,7 +64,7 @@ const TicketPage = () => {
                 <div className="right-panel">
 
                     
-                    <TicketForm />
+                    <CreateTicketPage/>
 
                     <div className="insights">
                         <h4>Assignment Insights</h4>

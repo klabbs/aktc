@@ -1,5 +1,5 @@
 import useDocumentTitle from "../../../hooks/UseDocumentTitle";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 import { useBatches } from "../hooks";
 
 const MainPage = () => {
@@ -47,6 +47,7 @@ const MainPage = () => {
 
                     <h3>Recent Batches</h3>
                     {batches.map((data) => (
+                        <Link to={`edit/${data._id}`} key={data._id}>
                         <div className="row" key={data._id}>
                             <img 
                             src={`https://api.dicebear.com/10.x/shapes/svg?seed=${data._id}`}
@@ -57,6 +58,7 @@ const MainPage = () => {
                             </span>
                             <span className="status overdue"><strong>10/100</strong></span>
                         </div>
+                        </Link>
                      ))}
                 </div>
 

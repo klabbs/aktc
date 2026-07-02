@@ -6,9 +6,9 @@ import { createData } from "../api";
 const CreatePage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    course: "",
-    batchCode: "",
-    startDate: "",
+    classes: "",
+    selectbatch: "",
+    studentname: "",
     endDate: "",
     schedule:"",
     capacity: "",

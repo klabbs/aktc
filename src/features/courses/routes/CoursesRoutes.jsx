@@ -1,28 +1,19 @@
 import { Routes, Route } from "react-router-dom";
 import RoleRoute from "../../../routes/role";
+
 import CoursesPage from "../pages/CoursesPage";
-import CoursePage from "../pages/CoursesPage";
-// import CourseDetailsPage from "../pages/CourseDetailsPage";
+import CoursePage from "../pages/CoursePage";
 import CreateCoursePage from "../pages/CreateCoursePage";
 import EditCoursePage from "../pages/EditCoursePage";
 
-
 const CoursesRoutes = () => {
- return (
-   <Routes>
-     <Route index element={<CoursesPage />} />
-     <Route path="new" element={<CreateCoursePage />} />
-     <Route path=":id" element={<CoursePage />} />
-     <Route path=":id/edit" element={<CoursePage />} />
-   </Routes>
- );
   return (
     <Routes>
-      {/* Everyone can view */}
+      {/* PUBLIC (all allowed roles already filtered in parent route) */}
       <Route index element={<CoursesPage />} />
       <Route path=":id" element={<CoursePage />} />
 
-      {/* Admin only */}
+      {/* ADMIN ONLY ROUTES */}
       <Route
         path="new"
         element={
@@ -41,14 +32,7 @@ const CoursesRoutes = () => {
         }
       />
     </Routes>
-    // <Routes>
-    //   <Route index element={<CoursesPage />} />
-    //   <Route path="new" element={<CreateCoursePage />} />
-    //   <Route path=":id" element={<CoursePage />} />
-    //   <Route path=":id/edit" element={<CoursePage />} />
-    // </Routes>
   );
 };
-
 
 export default CoursesRoutes;

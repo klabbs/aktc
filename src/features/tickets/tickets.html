@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tickets Dashboard</title>
+    <link rel="stylesheet" href="Ticket.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-Po+4pwbxk4OyYxjsLcX3L0f0kLMpwB1NdCssCMm0d8XvIvf8x7W2p8zF+c7qHBYBvXJkDruHAWQv9K4fK/z+cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <div>
+          <div class="logo">
+            <h3>APTECH KUBWA</h3>
+            <p>SUPPORT DESK</p>
+          </div>
+          <ul class="menu">
+            <li class="active"><i class="fa-solid fa-ticket"></i> Tickets</li>
+            <li><i class="fa-solid fa-plus"></i> New Ticket</li>
+            <li><i class="fa-solid fa-people-group"></i> Teams</li>
+            <li><i class="fa-solid fa-gear"></i> Settings</li>
+          </ul>
+        </div>
+        <div class="profile">
+          <img src="https://i.pravatar.cc/45?img=12" alt="Support Agent" />
+          <div>
+            <h4>Olivia Brown</h4>
+            <span>Support Lead</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="topbar">
+          <div>
+            <h2>Ticket Center</h2>
+            <p>Monitor incoming tickets and resolve issues quickly</p>
+          </div>
+          <div class="top-right">
+            <i class="fa-regular fa-bell"></i>
+            <span>Support</span>
+            <img src="https://i.pravatar.cc/40?img=8" alt="Agent" />
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="card">
+            <p>Open Tickets</p>
+            <h2>18</h2>
+            <small class="green">+4 today</small>
+          </div>
+          <div class="card">
+            <p>High Priority</p>
+            <h2>6</h2>
+            <small>Action needed</small>
+          </div>
+          <div class="card">
+            <p>Assigned To</p>
+            <div class="student">
+              <div class="avatar">S</div>
+              <span>Sandra K.</span>
+            </div>
+          </div>
+          <div class="card">
+            <p>Resolution Rate</p>
+            <h4>92%</h4>
+            <small>Excellent</small>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="submissions">
+            <div class="row" style="font-weight:700;">
+              <span>#</span>
+              <span>Subject</span>
+              <span>Priority</span>
+              <span>Status</span>
+            </div>
+            <div class="row">
+              <span>001</span>
+              <span>Unable to login to portal</span>
+              <span>High</span>
+              <span class="status overdue">Overdue</span>
+            </div>
+            <div class="row">
+              <span>002</span>
+              <span>Course access issue</span>
+              <span>Medium</span>
+              <span class="status grading">In progress</span>
+            </div>
+            <div class="row">
+              <span>003</span>
+              <span>Payment confirmation error</span>
+              <span>High</span>
+              <span class="status submitted">Resolved</span>
+            </div>
+            <div class="row">
+              <span>004</span>
+              <span>Profile update request</span>
+              <span>Low</span>
+              <span class="status grading">Pending</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="grade-card">
+              <h4>Create New Ticket</h4>
+              <input type="text" placeholder="User name" />
+              <input type="text" placeholder="Ticket subject" />
+              <textarea placeholder="Describe the issue"></textarea>
+              <button>Create Ticket</button>
+            </div>
+            <div class="insights">
+              <h4>Ticket Insights</h4>
+              <p>Average Response <span>1h 24m</span></p>
+              <div class="progress">
+                <div class="fill"></div>
+              </div>
+              <p>Pending Tickets <strong>18</strong></p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

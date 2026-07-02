@@ -6,11 +6,11 @@ import RegPage from "../pages/RegPage";
 
 
 const RegistrationRoutes = () => {
-//  return (
-//    <Routes>
-//      <Route index element={<RegPage />} />
-//    </Routes>
-//  );
+  return (
+    <Routes>
+      <Route index element={<RegPage />} />
+    </Routes>
+  );
 };
 
 

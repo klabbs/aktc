@@ -39,7 +39,10 @@ const useAuthInit = () => {
         }finally {
           dispatch(setAuthInitialized());
         }
-      }else{return}
+      } else {
+        dispatch(setAuthInitialized());
+        return;
+      }
     }
 
     initializeAuth()

@@ -2,47 +2,44 @@ import '../pages/Courses.css';
 import { useCourses } from "../hooks/useCourses";
 import { Link } from "react-router-dom";
 
-const CourseCard = () => {
+const CourseCard = ({ linkBase = "/courses" }) => {
   const { courses } = useCourses();
-    if(courses.success){
-      const coursesList = courses.data;
-      return (
-        <div className="course-grid">
-          {coursesList.map((course) => (
-            <Link to={course._id} key={course._id}>
+
+  if (courses.success) {
+    const coursesList = courses.data;
+
+    return (
+      <div className="course-grid">
+        {coursesList.map((course) => (
+          <Link to={`${linkBase}/${course._id}`} key={course._id}>
             <div className="course-card">
-              {/* <img src="https://picsum.photos/400/250?1"/> */}
-              {/* different-image-everytime */}
-              {/* <img
-                src={`https://picsum.photos/400/250?random=${course.id}`}
-                alt={course.title}
-              /> */}
-              {/* same-image-everytime */}
+
               <img
                 src={`https://picsum.photos/seed/${course._id}/400/250`}
                 alt={course.title}
               />
-                <h3>{course.title}</h3>
 
-                <small>12 Weeks • ★ 4.9</small>
+              <h3>{course.title}</h3>
 
-                <p>
-                  Learn user-centered design principles and
-                  high-fidelity prototyping.
-                </p>
+              <small>12 Weeks • ★ 4.9</small>
 
-                <div className="price-row">
-                  <h4>₦599</h4>
-                  <button>Enroll</button>
-                </div>
-            </div> 
-            </Link>      
-          ))}
-          
-        </div>
-     
-      );
-    }
-  };
+              <p>
+                Learn user-centered design principles and high-fidelity prototyping.
+              </p>
 
-  export default CourseCard;
+              <div className="price-row">
+                <h4>₦599</h4>
+                <button>Enroll</button>
+              </div>
+
+            </div>
+          </Link>
+        ))}
+      </div>
+    );
+  }
+
+  return null;
+};
+
+export default CourseCard;

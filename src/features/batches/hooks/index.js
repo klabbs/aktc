@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
-import { getAll } from "../api";
+import { getAll, getById } from "../api";
 
-export const useBatches = () => {
-  const [batches, setBatches] = useState([]);
+export const useBatches = (id = null) => {
+  const [data, setData] = useState(id ? null : []);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchBatches = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
 
-        const res = await getAll();
+        if (id) {
+          // Fetch a single batch
+          const res = await getById(id);
+          setData(res.data.data ?? res.data);
+        } else {
+          // Fetch all batches
+          const res = await getAll();
 
-        // If API returns an array
-        if (Array.isArray(res.data)) {
-          setBatches(res.data);
-        }
-        // If API returns { success, data }
-        else if (res.data.data) {
-          setBatches(res.data.data);
+          if (Array.isArray(res.data)) {
+            setData(res.data);
+          } else {
+            setData(res.data.data ?? []);
+          }
         }
       } catch (err) {
         console.error(err);
@@ -29,8 +33,13 @@ export const useBatches = () => {
       }
     };
 
-    fetchBatches();
-  }, []);
+    fetchData();
+  }, [id]);
 
-  return { batches, loading, error };
+  return {
+    batches: id ? null : data,
+    batch: id ? data : null,
+    loading,
+    error,
+  };
 };
