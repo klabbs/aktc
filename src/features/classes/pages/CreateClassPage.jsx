@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import  ClassesForm  from "./../components/classesform";
-import { createClasses } from "./../api/classesApi";
+import { createData } from "./../api";
 
 const CreateClassPage = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const CreateClassPage = () => {
     e.preventDefault();
 
     try {
-      await createClasses(formData);
+      await createData(formData);
       navigate("/classes");
     } catch (error) {
       console.error(error);

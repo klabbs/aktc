@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getClassById } from "../api/classesApi";
+import { getById } from "../api";
 
 const ClassDetails = () => {
   const { id } = useParams();
@@ -9,7 +9,7 @@ const ClassDetails = () => {
   useEffect(() => {
     const load = async () => {
       try {
-        const res = await getClassById(id);
+        const res = await getById(id);
         setItem(res.data?.data || res.data);
       } catch (error) {
         console.error(error);

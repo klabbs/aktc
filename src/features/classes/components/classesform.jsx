@@ -8,6 +8,8 @@ const ClassesForm = ({
 }) => {
   const { users, loading, error } = useUsers();
   const { batches } = useBatches();
+  console.log("batches", batches);
+  console.log("users00", users);
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -18,6 +20,7 @@ const ClassesForm = ({
   };
 
   // Only instructors
+  console.log("users",users.data)
   const instructors = users.filter(
     (user) => user.role?.toLowerCase() === "instructor"
   );

@@ -6,7 +6,7 @@ import { createData } from "../api";
 const CreatePage = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    course: "",
+    Scourse: "",
     batchCode: "",
     startDate: "",
     endDate: "",
@@ -20,7 +20,7 @@ const CreatePage = () => {
 
     try {
       await createData(formData);
-      navigate("/batches");
+      navigate("/enrollment");
     } catch (error) {
       console.error(error);
     }

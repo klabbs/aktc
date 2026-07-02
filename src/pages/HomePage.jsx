@@ -1,7 +1,6 @@
 import "./HomePage.css"
 import CourseCard from "../features/courses/components/CourseCard";
-
-
+// import CourseCard from '../components/layout/navbar'
 const HomePage = () => {
     return (
       <div>
@@ -313,9 +312,10 @@ const HomePage = () => {
                   </a>
 
               </div>
-                <CourseCard/>
+              <div>
+                <CourseCard linkBase="/course-registration" />
+              </div>
               <div className="specialization-grid">
-
                   <div className="course-card">
 
                       <div className="course-top">
