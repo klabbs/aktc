@@ -1,10 +1,12 @@
 // import ClassTable from "../components/ClassTable";
 import useDocumentTitle from "../../../hooks/UseDocumentTitle";
 import { useNavigate, useParams } from "react-router-dom";
+import { useClasses } from "../hooks";
 
 const ClassesPage = () => {
   useDocumentTitle("Classes | AKTC");
   const navigate = useNavigate();
+  const { classes, loading, error } = useClasses();
 
   return (
     <>
@@ -45,35 +47,19 @@ const ClassesPage = () => {
                
                 <div className="submissions">
 
-                    <h3>Recent Student Submissions</h3>
+                    <h3>Recent Classes</h3>
 
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=8"/>
-                        <span>Alex Rivera</span>
-                        <span className="status submitted">Submitted</span>
-                        <strong>92/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=9" />
-                        <span>Sarah Jenkins</span>
-                        <span className="status grading">Grading</span>
-                        <strong>--/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=10" />
-                        <span>Liam O'Connell</span>
-                        <span className="status submitted">Submitted</span>
-                        <strong>78/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=11" />
-                        <span>Maya Patel</span>
-                        <span className="status overdue">Overdue</span>
-                        <strong>0/100</strong>
-                    </div>
+                    {classes.map((data) => (
+                        <div className="row" key={data._id}>
+                            <img 
+                            src={`https://api.dicebear.com/10.x/shapes/svg?seed=${data._id}`}
+                            />
+                            <span className="mr-5">
+                                {data.title}<br/>
+                            </span>
+                            <span className="status overdue"><strong>10/100</strong></span>
+                        </div>
+                     ))}
 
                 </div>
 

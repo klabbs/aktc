@@ -1,16 +1,16 @@
 import api from "../../../api/axios";
 
-export const getClasses = () =>
+export const getAll = () =>
   api.get("/classes");
 
-export const getClassById = (id) =>
+export const getById = (id) =>
   api.get(`/classes/${id}`);
 
-export const createClasses = (data) =>
+export const createData = (data) =>
   api.post("/classes", data);
 
-export const updateClasses = (id, data) =>
+export const updateData = (id, data) =>
   api.put(`/classes/${id}`, data);
 
-export const deleteClasses = (id) =>
+export const deleteData = (id) =>
   api.delete(`/classes/${id}`);

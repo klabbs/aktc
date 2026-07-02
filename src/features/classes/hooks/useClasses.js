@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import { getClasses } from "../api/classesApi";
+// import { useEffect, useState } from "react";
+// import { getClasses } from "../api";
 
-export const useClasses = () => {
-  const [classes, setClasses] = useState([]);
+// export const useClasses = () => {
+//   const [classes, setClasses] = useState([]);
 
-  useEffect(() => {
-    getClasses().then((res) =>
-      setClasses(res.data)
-    );
-  }, []);
+//   useEffect(() => {
+//     getClasses().then((res) =>
+//       setClasses(res.data)
+//     );
+//   }, []);
 
-  return { classes };
-};
+//   return { classes };
+// };

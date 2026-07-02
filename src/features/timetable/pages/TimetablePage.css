@@ -87,7 +87,21 @@ color:#666;
 }
 
 .class-card h4{
-margin-top:8px;
+   margin-top:8px;
+}
+
+.className-card{
+     color:#777;
+      margin-bottom:15px;
+}
+.className-card small{
+    background-color: #5ca9f6;
+}
+.className-card h4{
+    background-color: #9af65c;
+}
+.className-card p{
+     background-color: #5d5cf6;
 }
 
 .stats-grid{
