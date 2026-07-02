@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getAll } from "../api";
 
 export const useEnrollment = () => {
-  const [Enrollment, setEnrollment] = useState([]);
+  const [enrollment, setEnrollment] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -32,5 +32,5 @@ export const useEnrollment = () => {
     fetchEnrollment();
   }, []);
 
-  return { Enrollment, loading, error };
+  return { enrollment, loading, error };
 };

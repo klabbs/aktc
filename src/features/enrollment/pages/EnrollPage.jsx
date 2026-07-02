@@ -7,9 +7,10 @@ const EnrollPage = () => {
   useDocumentTitle("Enrollment | AKTC");
   const navigate = useNavigate();
   const { enrollment, loading, error } = useEnrollment();
+  console.log("enrollment",enrollment);
   return (
 
-  <div><main className="main">
+  <div> <main className="main">
 
             <div className="stats">
 
@@ -46,43 +47,26 @@ const EnrollPage = () => {
                
                 <div className="submissions">
 
-                    <h3>Recent Student Submissions</h3>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=8"/>
-                        <span>Alex Rivera</span>
-                        <span className="status submitted">Submitted</span>
-                        <strong>92/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=9" />
-                        <span>Sarah Jenkins</span>
-                        <span className="status grading">Grading</span>
-                        <strong>--/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=10" />
-                        <span>Liam O'Connell</span>
-                        <span className="status submitted">Submitted</span>
-                        <strong>78/100</strong>
-                    </div>
-
-                    <div className="row">
-                        <img src="https://i.pravatar.cc/50?img=11" />
-                        <span>Maya Pat</span>
-                        <span className="status overdue">Overdue</span>
-                        <strong>0/100</strong>
-                    </div>
-
+                    <h3>Recent enrollment</h3>
+                    {enrollment?.map((data) => (
+                        <div className="row" key={data._id}>
+                            <img 
+                            src={`https://api.dicebear.com/10.x/shapes/svg?seed=${data._id}`}
+                            />
+                            <span className="mr-5">
+                                -{data.user}<br/>
+                                <strong>{data.user.name}</strong>
+                            </span>
+                            <span className="status overdue"><strong>{data.status}</strong></span>
+                        </div>
+                     ))}
                 </div>
 
                
                 <div className="right-panel">
 
                     <div className="grade-card">
-                        <h3>Add New Enrollment Details</h3>
+                        <h3>Add New Batch Details</h3>
 
                         <button onClick={() => navigate(`new`)}>Add Enrollment</button>
                     </div>
@@ -104,7 +88,6 @@ const EnrollPage = () => {
             </div>
 
         </main>
-      
     </div>
   );
 };
