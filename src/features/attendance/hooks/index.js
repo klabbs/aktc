@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getAll, getById } from "../api/forumApi";
+import { getAll, getById } from "../api/attendanceApi";
 
-// Hook to fetch all forum posts
-export const useForumList = () => {
-  const [forums, setForums] = useState([]);
+// Hook to fetch all attendance records
+export const useAttendanceList = () => {
+  const [attendances, setAttendances] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -14,7 +14,7 @@ export const useForumList = () => {
         setLoading(true);
         const res = await getAll();
         const data = Array.isArray(res.data) ? res.data : res.data?.data ?? [];
-        setForums(data);
+        setAttendances(data);
       } catch (err) {
         console.error(err);
         setError(err);
@@ -25,13 +25,13 @@ export const useForumList = () => {
     fetch();
   }, []);
 
-  return { forums, loading, error };
+  return { attendances, loading, error };
 };
 
-// Hook to fetch a single forum post by :id param
-export const useForum = () => {
+// Hook to fetch a single attendance record by :id param
+export const useAttendance = () => {
   const { id } = useParams();
-  const [forum, setForum] = useState(null);
+  const [attendance, setAttendance] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -41,7 +41,7 @@ export const useForum = () => {
       try {
         setLoading(true);
         const res = await getById(id);
-        setForum(res.data?.data ?? res.data);
+        setAttendance(res.data?.data ?? res.data);
       } catch (err) {
         console.error(err);
         setError(err);
@@ -52,5 +52,5 @@ export const useForum = () => {
     fetch();
   }, [id]);
 
-  return { forum, loading, error };
+  return { attendance, loading, error };
 };

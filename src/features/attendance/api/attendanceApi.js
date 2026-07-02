@@ -1,7 +1,16 @@
-import api from './client';
+import api from "../../../api/axios";
 
-export const getAllAttendance = () => api.get('/attendance');
-export const getAttendanceById = (id) => api.get(/attendance/);
-export const createAttendance = (data) => api.post('/attendance', data);
-export const updateAttendance = (id, data) => api.put(/attendance/, data);
-export const deleteAttendance = (id) => api.delete(/attendance/);
+export const getAll = () =>
+  api.get("/attendance");
+
+export const getById = (id) =>
+  api.get(`/attendance/${id}`);
+
+export const createData = (data) =>
+  api.post("/attendance", data);
+
+export const updateData = (id, data) =>
+  api.put(`/attendance/${id}`, data);
+
+export const deleteData = (id) =>
+  api.delete(`/attendance/${id}`);

@@ -1,4 +1,3 @@
-import styles from './ForumsPage.module.css';
 // import ForumTable from "../components/ForumTable";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 

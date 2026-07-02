@@ -1,4 +1,3 @@
-import styles from './WalletsPage.module.css';
 // import WalletsTable from "../components/WalletsTable";
 import useDocumentTitle from "../../../hooks/useDocumentTitle";
 
