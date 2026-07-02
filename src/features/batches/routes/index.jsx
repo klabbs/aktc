@@ -4,6 +4,7 @@ import RoleRoute from "../../../routes/role";
 import MainPage from "../pages/MainPage";
 import DetailPage from "../pages/DetailPage";
 import CreatePage from "../pages/CreatePage";
+import EditPage from "../pages/EditPage";
 
 const BatchesRoutes = () => {
   return (
@@ -23,10 +24,10 @@ const BatchesRoutes = () => {
       />
 
       <Route
-        path=":id/edit"
+        path="edit/:id"
         element={
           <RoleRoute allowedRoles={["admin"]}>
-            <CreatePage />
+            <EditPage />
           </RoleRoute>
         }
       />

@@ -29,8 +29,6 @@ const DetailPage = () => {
       <p><strong>Room:</strong> {item.room || "-"}</p>
       <p><strong>Date:</strong> {item.dateTime ? new Date(item.dateTime).toLocaleString() : "-"}</p>
     </div>
-
-    
   );
 };
 

@@ -25,7 +25,7 @@ const CoursePage = () => {
                       <h2>{course.title}</h2>
                       <p>{course.description}</p>
                       <hr/>
-                      {user.role === "admin" && (
+                      {user && user.role === "admin" && (
                         <button
                           className="add-course-btn"
                           onClick={() => navigate(`/courses/${course._id}/edit`)}

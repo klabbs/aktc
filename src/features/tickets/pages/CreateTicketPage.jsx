@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createComplaint } from "../api/Ticketapi";
 import TicketForm from "../components/TicketForm";
 
 const CreateTicketPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     user: "",
     subject: "",
@@ -17,7 +19,7 @@ const CreateTicketPage = () => {
     try {
       setError(null);
       const response = await createComplaint(data);
-      console.log("Ticket created", response.data);
+      //console.log("Ticket created", response.data);
       setFormData({
         user: "",
         subject: "",
@@ -26,6 +28,10 @@ const CreateTicketPage = () => {
         status: "open",
         assignedTo: "",
       });
+      navigate('/tickets');
+      setTimeout(() => {
+        window.location.reload();
+      }, 0);
     } catch (err) {
       setError(err?.response?.data?.message || "Failed to create ticket");
     }

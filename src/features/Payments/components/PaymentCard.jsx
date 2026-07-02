@@ -11,6 +11,8 @@ const PaymentCard = ({ payment }) => {
         />
 
         <h3>₦{payment.amount}</h3>
+        
+        <p>{payment.courseName}</p>
 
         <p><strong>Method:</strong> {payment.paymentMethod}</p>
 
@@ -19,6 +21,8 @@ const PaymentCard = ({ payment }) => {
         <p className="transaction">
           {payment.transactionId}
         </p>
+        
+        
 
         <div className="price-row">
           <button>View Details</button>
